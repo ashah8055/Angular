@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<body>
+
+<div ng-app="myApp" ng-controller="formCtrl">
+  <form novalidate>
+    First Name:<br>
+    <input type="text" ng-model="firstname" name="firstname"><br>
+    Last Name:<br>
+    <input type="text" ng-model="lastname" name="lastname">
+    <br><br>
+    <input type="text" ng-model="mix" name="mix">
+    
+    <button ng-click="reset()">RESET</button>
+  </form>
+  <p>form = {{firstname}}</p>
+  <p>master = {{master}}</p>
+</div>
+</body>
+</html>
