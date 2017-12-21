@@ -1,0 +1,40 @@
+<div class="container">
+<div ng-if="count != 0">
+  <div class="form-group row">
+	<div class="alert alert-success" role="alert" ng-if="success">
+	  <strong>Well done!</strong> The category is correct.
+	</div>
+	<div class="alert alert-danger" role="alert" ng-if="wrong">
+		<strong>Sorry!</strong> The correct answer is {{definition.category}}.
+	</div>
+	<div class="alert alert-warning" role="alert" ng-if="warning">
+		<strong>Please select an answer</strong>.
+	</div>	
+	<h3><u>Identify the Type of Word</u></h3>
+    <h3 class="rWord"><small>{{definition.word ? '' : 'Loading..'}}</small> {{definition.word}}     <button ng-click="getMeaning()" class="glyphicon glyphicon-refresh"></button></h3>
+    <h4 ng-if="clue">{{definition.definition}}</h4>
+    	<div class="form-check">
+		    <input class="form-check-input" type="radio" ng-model="wordType" value="verb" id="verb" name="type">
+		    <label  class="form-check-label" for="verb">Verb</label>
+	    </div>
+	    <div class="form-check">
+		    <input class="form-check-input" type="radio"  ng-model="wordType" value="noun" id="noun" name="type">
+		    <label  class="form-check-label" for="noun">Noun</label>
+	    </div>
+	    <div class="form-check">
+		    <input class="form-check-input" type="radio" ng-model="wordType" value="adjective" id="adjective" name="type">
+		    <label  class="form-check-label" for="adjective">Adjective</label>
+	    </div>
+    </div>
+    <div class="form-group row">
+      <div class="offset-sm-2 col-sm-10">
+        <button type="button" ng-click="clueFn(wordType)" class="btn btn-info {{clueFlag ? 'disabled' : ''}}">Clue</button>
+        <button type="button" ng-click="submit(wordType)" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+  <div ng-if="count == 0" class="score-card">
+  <h2>Your score {{mark.success}} / 5 </h2>
+  <button type="button" ng-click="reStart()" class="btn btn-success">Restart the game</button>
+  </div>
+</div>
